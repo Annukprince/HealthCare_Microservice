@@ -15,6 +15,7 @@ public class DoctorController {
     private final DoctorService doctorService;
 
     public DoctorController(DoctorService doctorService) {
+
         this.doctorService = doctorService;
     }
 
@@ -22,6 +23,12 @@ public class DoctorController {
     public ResponseEntity<DoctorDto> createDoctor(@RequestBody DoctorDto dto) {
         var doctor = doctorService.createDoctor(dto.toDoctor());
         return ResponseEntity.status(HttpStatus.CREATED).body(DoctorDto.fromEntity(doctor));
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<DoctorDto> getDoctor(@PathVariable String id){
+        var doctor = doctorService.getDoctor(id).orElseThrow();
+        return ResponseEntity.ok(DoctorDto.fromEntity(doctor));
     }
 
     @GetMapping

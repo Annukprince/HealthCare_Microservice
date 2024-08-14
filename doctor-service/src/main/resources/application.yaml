@@ -3,8 +3,8 @@ spring:
     name: doctor-service
   data:
     mongodb:
-      uri: mongodb+srv://cluster0.pb6vbbj.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
-      database: doctor_service
+      uri: mongodb://localhost:27017/
+      database: Doctor_Service
       username:
       password:
 server:

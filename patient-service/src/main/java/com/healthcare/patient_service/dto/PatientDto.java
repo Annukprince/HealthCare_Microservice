@@ -1,5 +1,6 @@
 package com.healthcare.patient_service.dto;
 
+import jakarta.annotation.Nullable;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Past;
@@ -29,6 +30,7 @@ public record PatientDto(
 
         @Past(message = "Date of birth must be in the past")
         LocalDate dob,
+
 
         List<String> illnesses
 ) {
